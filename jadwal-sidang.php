@@ -38,7 +38,7 @@ if(!isset($_COOKIE['loginD'])) { // YG BENER loginD
     header('location: index.php');
 }
 
-$sqlD = "SELECT * FROM dosen WHERE npk='".$_COOKIE['nomerD']."'"; //HARUSNNTA TABEL DOSEN
+$sqlD = "SELECT * FROM dosen WHERE nama='".$_COOKIE['nomerD']."'"; //HARUSNNYA TABEL DOSEN
 $resultD = mysqli_query($link, $sqlD);
 $rowD= mysqli_fetch_array($resultD);
 ?>
@@ -72,7 +72,7 @@ $rowD= mysqli_fetch_array($resultD);
                         <a href="./jadwal-sidang.php">Jadwal Sidang</a>
                     </li>
                     <li>
-                        <a href="./proses.php?cmd=logout">Logout, <?php echo $rowD['nama']; ?>  </a>
+                        <a href="./proses.php?cmd=logoutD">Logout, <?php echo $rowD['nama']; ?>  </a>
                     </li>
                 </ul>
             </div>

@@ -35,7 +35,7 @@ session_start();
 require './db.php';
 
 if(!isset($_COOKIE['login'])) {
-    header('location: jadwal-kegiatan.php');
+    header('location: index.php');
 }
 if(!isset($_SESSION['notif'])) {
     echo "";
@@ -101,23 +101,36 @@ $rowM = mysqli_fetch_array($resultM);
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <form class="form-signin" action="proses.php?cmd=login" method="POST">
+                    <form class="form-signin" action="proses.php?cmd=periode" method="POST">
                         <div class="row">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4">
                             <legend>Periode Sidang</legend>
                                 <form class="form-horizontal">
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nama:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Periode">
+                                    </div>
+                                  </div></br></br>
                                   <div class="form-group">
                                     <label class="col-sm-2 control-label">Buka:</label>
                                     <div class="col-sm-10">
-                                      <input type="date" class="form-control" id="nrp" placeholder="Tanggal Buka Periode">
+                                      <input type="date" class="form-control" name="buka" id="buka" placeholder="Tanggal Buka Periode">
                                     </div>
                                   </div></br></br>
                                   <div class="form-group">
                                     <label class="col-sm-2 control-label">Tutup:</label>
                                     <div class="col-sm-10">
-                                      <input type="date" class="form-control" id="nama" placeholder="Tanggal Tutup Periode"">
+                                      <input type="date" class="form-control" name="tutup" id="tutup" placeholder="Tanggal Tutup Periode"">
                                     </div>
+                                  </div></br></br>
+                                  <div class="form-group">
+                                    <label class="col-sm-2 control-label">Status:</label><div class="col-sm-10">
+                                    <select name="status" id="status" class="form-control">
+                                      <option value="1">Aktif</option>
+                                      <option value="0">Non Aktif</option>
+                                    </select></div>
                                   </div></br></br>
                                   <button class="btn btn-primary " type="submit">Simpan</button>
                                 </form>

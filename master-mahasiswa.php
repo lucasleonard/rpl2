@@ -36,12 +36,14 @@ require './db.php';
 
 $sql = "SELECT * FROM mahasiswa ";
 $result = mysqli_query($link, $sql);
+
 if(!$result) {
     echo "SQL ERROR: ".$sql;
 }
 
+
 if(!isset($_COOKIE['login'])) {
-    header('location: jadwal-kegiatan.php');
+    header('location: index.php');
 }
 if(!isset($_SESSION['notif'])) {
     echo "";
@@ -134,6 +136,18 @@ $rowM = mysqli_fetch_array($resultM);
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="judul" placeholder="Judul Tugas Akhir">
                                     </div>
+                                  </div></br></br>
+                                  <div class="form-group">
+                                    <label class="col-sm-2 control-label">NPK 1:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="npk1" placeholder="NPK Dosen Pembimbing 1">
+                                    </div>
+                                  </div></br></br>
+                                  <div class="form-group">
+                                    <label class="col-sm-2 control-label">NPK 2:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="npk2" placeholder="NPK Dosen Pembimbing 2">
+                                    </div>
                                   </div>
                             </div>
 
@@ -142,22 +156,22 @@ $rowM = mysqli_fetch_array($resultM);
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">Prasyarat</div>
                                         <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="1">1. Buku TA Sebanyak 4 Eksemplar</label>
+                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="1" checked>1. Buku TA Sebanyak 4 Eksemplar</label>
                                         </div>
                                         <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="2">2. Proposal TA Berserata form TA 4 Eksemplar</label>
+                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="2" checked>2. Proposal TA Berserata form TA 4 Eksemplar</label>
                                         </div>
                                         <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="3">3. Karya Tulis TA Sebanyak 4 Eksemplar</label>
+                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="3" checked>3. Karya Tulis TA Sebanyak 4 Eksemplar</label>
                                         </div>
                                         <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="4">4. Fotokopi Kartu Studi</label>
+                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="4" checked>4. Fotokopi Kartu Studi</label>
                                         </div>
                                         <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="5">5. Fotokopi Bimbingan TA</label>
+                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="5" checked>5. Fotokopi Bimbingan TA</label>
                                         </div>
                                         <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="6">6. Fotokopi Sertifikat LSTA</label>
+                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="6" checked>6. Fotokopi Sertifikat LSTA</label>
                                         </div>
                                     </div>
                                 </div>
@@ -194,8 +208,24 @@ $rowM = mysqli_fetch_array($resultM);
                             echo "<td>" . $row->nrp . "</td>";
                             echo "<td>" . $row->nama . "</td>";
                             echo "<td>" . $row->hp . "</td>";
-                            echo "<td>" . $row->npk1 . "</td>";
-                            echo "<td>" . $row->npk2 . "</td>";
+                            $sqlDosen = "SELECT nama  from dosen WHERE dosen.npk=(SELECT npk1 FROM `mahasiswa` WHERE nrp= ".$row->nrp.")";
+                            $resultDosen = mysqli_query($link, $sqlDosen);
+                            if(!$resultDosen) {
+                                echo "SQL ERROR: ".$sqlDosen;
+                            }
+                            while ($row1 = mysqli_fetch_object($resultDosen)) {
+                                echo "<td>" . $row1->nama . "</td>";
+                            }
+
+                            $sqlDosen2 = "SELECT nama  from dosen WHERE dosen.npk=(SELECT npk2 FROM `mahasiswa` WHERE nrp= ".$row->nrp.")";
+                            $resultDosen2 = mysqli_query($link, $sqlDosen2);
+                            if(!$resultDosen2) {
+                                echo "SQL ERROR: ".$sqlDosen2;
+                            }
+                            while ($row2 = mysqli_fetch_object($resultDosen2)) {
+                                echo "<td>" . $row2->nama . "</td>";
+                            }
+
                             echo "<td>" . $row->pra1 . "</td>";
                             echo "<td>" . $row->pra2 . "</td>";
                             echo "<td>" . $row->pra3 . "</td>";

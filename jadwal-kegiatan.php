@@ -41,6 +41,10 @@ if(!isset($_COOKIE['loginD'])) { // YG BENER loginD
 $sqlD = "SELECT * FROM dosen WHERE nama ='".$_COOKIE['nomerD']."'";
 $resultD = mysqli_query($link, $sqlD);
 $rowD= mysqli_fetch_array($resultD);
+
+$sqlP = "SELECT * FROM periode WHERE status ='1'";
+$resultP = mysqli_query($link, $sqlP);
+$rowP= mysqli_fetch_array($resultP);
 ?>
 
 <body>
@@ -72,7 +76,7 @@ $rowD= mysqli_fetch_array($resultD);
                         <a href="./jadwal-sidang.php">Jadwal Sidang</a>
                     </li>
                     <li>
-                        <a href="./proses.php?cmd=logout">Logout, <?php echo $rowD['nama']; ?> </a>
+                        <a href="./proses.php?cmd=logoutD">Logout, <?php echo $rowD['nama']; ?> </a>
                     </li>
                 </ul>
             </div>
@@ -101,7 +105,7 @@ $rowD= mysqli_fetch_array($resultD);
                             </div>
                             <div class="col-xs-6 col-lg-7">
                                 <div class="alert alert-success">
-                                    <h3 class="text-center"><br/><br/><strong>PERIODE: <!--<?php echo $rowP['nama']; ?>--> </strong><br/><br/><br/></h3>
+                                    <h3 class="text-center"><br/><br/><strong>PERIODE: <?php echo $rowP['nama']; ?> </strong><br/><br/><br/></h3>
                                 </div>
                             </div>
                         </div>
@@ -109,88 +113,88 @@ $rowD= mysqli_fetch_array($resultD);
 
                     </br>
 
-                    <form class="form-signin" action="proses.php?cmd=login" method="POST">
+                    <form class="form-signin" action="proses.php?cmd=jamDosen" method="POST">
                         <table class="table table-hover table-bordered">
                           <tr class="info">
                             <th><center>Hari</th>
-                            <th><center>Senin</th>
-                            <th><center>Selasa</th>
-                            <th><center>Rabu</th>
-                            <th><center>Kamis</th>
-                            <th><center>Jumat</th>
-                            <th><center>Sabtu</th>
+                            <th><center><?php echo $a = date("l", strtotime($rowP['buka'])); ?></th>
+                            <th><center><?php echo $b = date("l", strtotime("+1 day", strtotime($rowP['buka']))); ?></th>
+                            <th><center><?php echo $c = date("l", strtotime("+2 day", strtotime($rowP['buka']))); ?></th>
+                            <th><center><?php echo $d = date("l", strtotime("+3 day", strtotime($rowP['buka']))); ?></th>
+                            <th><center><?php echo $e = date("l", strtotime("+4 day", strtotime($rowP['buka']))); ?></th>
+                            <th><center><?php echo $f = date("l", strtotime("+5 day", strtotime($rowP['buka']))); ?></th>
                           </tr>
                           <tr>
                             <td><center>Tanggal</td>
-                            <td><center>DD-MM</td>
-                            <td><center>DD-MM</td>
-                            <td><center>DD-MM</td>
-                            <td><center>DD-MM</td>
-                            <td><center>DD-MM</td>
-                            <td><center>DD-MM</td>
+                            <td><center><?php echo $rowP['buka']; ?></td>
+                            <td><center><?php echo $date1 = date('Y-m-d', strtotime("+1 day", strtotime($rowP['buka']))); ?></td>
+                            <td><center><?php echo $date2 = date('Y-m-d', strtotime("+2 day", strtotime($rowP['buka']))); ?></td>
+                            <td><center><?php echo $date3 = date('Y-m-d', strtotime("+3 day", strtotime($rowP['buka']))); ?></td>
+                            <td><center><?php echo $date4 = date('Y-m-d', strtotime("+4 day", strtotime($rowP['buka']))); ?></td>
+                            <td><center><?php echo $date5 = date('Y-m-d', strtotime("+5 day", strtotime($rowP['buka']))); ?></td>
                           </tr>
                           <tr>
                             <td><center>07.00 - 08.30</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="07.00-08.30 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="07.00-08.30 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="07.00-08.30 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="07.00-08.30 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="07.00-08.30 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="07.00-08.30 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                           <tr>
                             <td><center>08.30 - 10.00</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="08.30-10.00 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="08.30-10.00 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="08.30-10.00 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="08.30-10.00 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="08.30-10.00 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="08.30-10.00 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                           <tr>
                             <td><center>10.00 - 11.30</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="10.00-11.30 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="10.00-11.30 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="10.00-11.30 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="10.00-11.30 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="10.00-11.30 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="10.00-11.30 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                           <tr>
                             <td><center>11.30 - 13.00</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="11.30-13.00 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="11.30-13.00 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="11.30-13.00 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="11.30-13.00 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="11.30-13.00 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="11.30-13.00 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                           <tr>
                             <td><center>13.00 - 14.30</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="13.00-14.30 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="13.00-14.30 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="13.00-14.30 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="13.00-14.30 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="13.00-14.30 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="13.00-14.30 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                           <tr>
                             <td><center>14.30 - 16.00</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="14.30-16.00 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="14.30-16.00 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="14.30-16.00 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="14.30-16.00 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="14.30-16.00 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="14.30-16.00 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                           <tr>
                             <td><center>16.00 - 17.30</td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
-                            <td><center><div class="checkbox"><label><input type="checkbox" value=""></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="16.00-17.00 <?php echo $rowP['buka']; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="16.00-17.00 <?php echo $date1; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="16.00-17.00 <?php echo $date2; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="16.00-17.00 <?php echo $date3; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="16.00-17.00 <?php echo $date4; ?>"></label></div></td>
+                            <td><center><div class="checkbox"><label><input type="checkbox" name="jam[]" value="16.00-17.00 <?php echo $date5; ?>"></label></div></td>
                           </tr>
                         </table>
                         <button class="btn btn-lg btn-primary" type="submit">Simpan</button>
