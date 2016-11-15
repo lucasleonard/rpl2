@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Tugas Akhir</title>
+    <title>Sistem Penjadwalan Tugas Akhir</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@ $rowM = mysqli_fetch_array($resultM);
 
 <body>
 
-    <div class="brand">Sistem Tugas Akhir</div>
+    <div class="brand">Sistem Penjadwalan Tugas Akhir</div>
     <div class="address-bar">Universitas Surabaya</div>
 
     <!-- Navigation -->
@@ -72,7 +72,7 @@ $rowM = mysqli_fetch_array($resultM);
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.html">Sistem Penjadwalan Tugas Akhir</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -111,34 +111,28 @@ $rowM = mysqli_fetch_array($resultM);
                                     <label class="col-sm-2 control-label">Nama:</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Periode">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">Buka:</label>
                                     <div class="col-sm-10">
                                       <input type="date" class="form-control" name="buka" id="buka" placeholder="Tanggal Buka Periode">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">Tutup:</label>
                                     <div class="col-sm-10">
                                       <input type="date" class="form-control" name="tutup" id="tutup" placeholder="Tanggal Tutup Periode"">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
-                                    <label class="col-sm-2 control-label">Status:</label><div class="col-sm-10">
-                                    <select name="status" id="status" class="form-control">
-                                      <option value="1">Aktif</option>
-                                      <option value="0">Non Aktif</option>
-                                    </select></div>
-                                  </div></br></br>
-                                  <button class="btn btn-primary " type="submit">Simpan</button>
-                                </form>
+                                    </div></br></br>
+                                    <label class="col-sm-2 control-label">Status:</label>
+                                        <div class="col-sm-10">
+                                            <select name="status" id="status" class="form-control">
+                                              <option value="1">Aktif</option>
+                                              <option value="0">Non Aktif</option>
+                                            </select>
+                                        </div>
+                                  </div>
+                                </form></br></br>
+                                <div class="col-sm-9"></div><button class="btn btn-primary" type="submit">Simpan</button>
                             </div>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>

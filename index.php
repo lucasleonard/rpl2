@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Tugas Akhir</title>
+    <title>Sistem Penjadwalan Tugas Akhir</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
 <body>
 
-    <div class="brand">Sistem Tugas Akhir</div>
+    <div class="brand">Sistem Penjadwalan Tugas Akhir</div>
     <div class="address-bar">Universitas Surabaya</div>
 
     <div class="container">

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Tugas Akhir</title>
+    <title>Sistem Penjadwalan Tugas Akhir</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@ $rowP= mysqli_fetch_array($resultP);
 
 <body>
 
-    <div class="brand">Sistem Tugas Akhir</div>
+    <div class="brand">Sistem Penjadwalan Tugas Akhir</div>
     <div class="address-bar">Universitas Surabaya</div>
 
     <!-- Navigation -->
@@ -64,7 +64,7 @@ $rowP= mysqli_fetch_array($resultP);
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.html">Sistem Penjadwalan Tugas Akhir</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

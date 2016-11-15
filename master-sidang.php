@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Tugas Akhir</title>
+    <title>Sistem Penjadwalan Tugas Akhir</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@ $rowM = mysqli_fetch_array($resultM);
 
 <body>
 
-    <div class="brand">Sistem Tugas Akhir</div>
+    <div class="brand">Sistem Penjadwalan Tugas Akhir</div>
     <div class="address-bar">Universitas Surabaya</div>
 
     <!-- Navigation -->
@@ -88,7 +88,7 @@ $rowM = mysqli_fetch_array($resultM);
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.html">Sistem Penjadwalan Tugas Akhir</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -119,15 +119,18 @@ $rowM = mysqli_fetch_array($resultM);
                 <div class="col-lg-12">
                     <form class="form-signin" action="proses.php?cmd=filter" method="POST">
                         <div class="row">
-                            <form class="form-inline">
-                              <div class="form-group">
-                                <p class="col-sm-2 control-label">Nama: </p>
-                              </div>
-                              <div class="form-group col-sm-4">
-                                <input type="text" class="form-control" id="nama" placeholder="Nama">
-                              </div>
-                              <button type="submit" class="btn btn-primary">Filter</button>
-                            </form>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <legend>Filter:</legend>
+                                <form class="form-inline">
+                                    <label class="col-sm-2 control-label" >Nama:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="nama" placeholder="Nama">
+                                    </div>
+                                </form>
+                                </br></br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+
                         </div>
                     </form>
 

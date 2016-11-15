@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2016 at 06:59 AM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.4
+-- Generation Time: Nov 15, 2016 at 12:15 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -59,9 +59,11 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`npk`, `nama`, `password`, `status`, `jabatan`) VALUES
-('12345', 'Nyoto', '123', 1, 'Dosen'),
-('998801', 'dosen', '123', 1, 'Dosen'),
-('998802', 'fadhil', '123', 1, 'Dosen');
+('998800', 'dosen', '123', 1, 'Dosen'),
+('998801', 'faishal', '123', 1, 'dosen'),
+('998802', 'fadhil', '123', 1, 'Dosen'),
+('998803', 'lucas', '123', 1, 'dosen'),
+('998804', 'adit', '123', 1, 'dosen');
 
 -- --------------------------------------------------------
 
@@ -170,10 +172,10 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nrp`, `nama`, `hp`, `judul_ta`, `status`, `npk1`, `npk2`, `pra1`, `pra2`, `pra3`, `pra4`, `pra5`, `pra6`, `password`) VALUES
-('160414039', 'Putu Aditya', '081810xxx', 'JUDUL TA SAYA', 1, '998801', '998802', 0, 0, 0, 0, 0, 0, ''),
-('160414040', 'Lucas Leonard', '081939856000', 'Print 4D', 0, '998801', '998802', 1, 1, 1, 1, 1, 1, ''),
-('160414053', 'Faishal Hendaryawan', '0000812731672', 'Game yang membuat game', 1, '12345', '998802', 0, 0, 0, 0, 0, 0, ''),
-('160414063', 'Fadhil Amadan', '08977348404', 'Web Pembuat TA', 1, '998801', '12345', 0, 0, 0, 0, 0, 0, '');
+('160414039', 'Putu Aditya', '08977348xxx', 'Judul Tugas Akhir', 1, '998801', '998802', 0, 0, 0, 0, 0, 0, ''),
+('160414040', 'Lucas Leonard', '08977348xxx', 'Judul Tugas Akhir', 0, '998803', '998804', 1, 1, 1, 1, 1, 1, ''),
+('160414053', 'Faishal Hendaryawan', '08977348xxx', 'Judul Tugas Akhir', 1, '998801', '998802', 0, 0, 0, 0, 0, 0, ''),
+('160414063', 'Fadhil Amadan', '08977348xxx', 'Judul Tugas Akhir', 1, '998803', '998804', 0, 0, 0, 0, 0, 0, '');
 
 -- --------------------------------------------------------
 

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Tugas Akhir</title>
+    <title>Sistem Penjadwalan Tugas Akhir</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@ $rowM = mysqli_fetch_array($resultM);
 
 <body>
 
-    <div class="brand">Sistem Tugas Akhir</div>
+    <div class="brand">Sistem Penjadwalan Tugas Akhir</div>
     <div class="address-bar">Universitas Surabaya</div>
 
     <!-- Navigation -->
@@ -80,7 +80,7 @@ $rowM = mysqli_fetch_array($resultM);
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.html">Sistem Penjadwalan Tugas Akhir</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -112,77 +112,65 @@ $rowM = mysqli_fetch_array($resultM);
                     <form class="form-signin" action="proses.php?cmd=inputM" method="POST">
                         <div class="row">
                             <div class="col-md-6">
-                                <form class="form-horizontal">
+                                <legend>Data Mahasiswa:</legend>
+                                <form class="form-inline">
                                   <div class="form-group">
                                     <label class="col-sm-2 control-label">NRP:</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="nrp" placeholder="NRP">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">Nama:</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="nama" placeholder="Nama">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">Ponsel:</label>
                                     <div class="col-sm-10">
-                                      <input type="text" class="form-control" name="ponsel" placeholder="08977xxx">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                      <input type="text" class="form-control" name="ponsel" placeholder="08977348xxx">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">Judul:</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="judul" placeholder="Judul Tugas Akhir">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">NPK 1:</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="npk1" placeholder="NPK Dosen Pembimbing 1">
-                                    </div>
-                                  </div></br></br>
-                                  <div class="form-group">
+                                    </div></br></br>
                                     <label class="col-sm-2 control-label">NPK 2:</label>
                                     <div class="col-sm-10">
                                       <input type="text" class="form-control" name="npk2" placeholder="NPK Dosen Pembimbing 2">
                                     </div>
                                   </div>
+                                </form>
                             </div>
 
                             <div class="col-md-6">
-                                <div class="panel-group">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">Prasyarat</div>
-                                        <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="1" checked>1. Buku TA Sebanyak 4 Eksemplar</label>
-                                        </div>
-                                        <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="2" checked>2. Proposal TA Berserata form TA 4 Eksemplar</label>
-                                        </div>
-                                        <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="3" checked>3. Karya Tulis TA Sebanyak 4 Eksemplar</label>
-                                        </div>
-                                        <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="4" checked>4. Fotokopi Kartu Studi</label>
-                                        </div>
-                                        <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="5" checked>5. Fotokopi Bimbingan TA</label>
-                                        </div>
-                                        <div class="checkbox">
-                                          <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="6" checked>6. Fotokopi Sertifikat LSTA</label>
-                                        </div>
-                                    </div>
+                                <legend>Prasyarat:</legend>
+                                <div class="checkbox">
+                                  <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="1" checked>1. Buku TA Sebanyak 4 Eksemplar</label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="2" checked>2. Proposal TA Berserata form TA 4 Eksemplar</label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="3" checked>3. Karya Tulis TA Sebanyak 4 Eksemplar</label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="4" checked>4. Fotokopi Kartu Studi</label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="5" checked>5. Fotokopi Bimbingan TA</label>
+                                </div>
+                                <div class="checkbox">
+                                  <label>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="pers[]" value="6" checked>6. Fotokopi Sertifikat LSTA</label>
                                 </div>
                             </div>
+                            <div class="col-md-5"></div><input class="btn btn-primary" type="submit" value="Simpan">
                         </div>
-                        <input class="btn btn-lg btn-primary" type="submit" value="Simpan">
                     </form>
 
                     </br></br>
 
-                    <table class="table table-hover table-bordered">
+                    <table class="table table-bordered">
                         <tr class="info">
                             <th rowspan="2"><center>No</th>
                             <th rowspan="2"><center>NRP</th>
